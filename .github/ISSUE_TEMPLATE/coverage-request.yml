@@ -1,0 +1,47 @@
+name: Coverage request
+description: An endpoint or field you need that is not served yet
+title: "Coverage: "
+labels: ["coverage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Coverage is deliberately bounded and published. Check
+        [sandboxapis.dev/coverage](https://sandboxapis.dev/coverage) first: it lists
+        every endpoint and its current status, and the `X-SandboxAPIs-Coverage`
+        header on a 404 points at the row for what you called.
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: Which API. For example GitHub, Jira, Slack, Linear.
+      placeholder: GitHub
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: The endpoint or field
+      description: The path for REST, or the type and field for GraphQL.
+      placeholder: GET /repos/{owner}/{repo}/actions/runs
+    validations:
+      required: true
+  - type: textarea
+    id: client
+    attributes:
+      label: What is driving the call
+      description: >
+        The client or tool that calls it, and roughly why. A real client we can run
+        against moves a request up the list, because it tells us which fields
+        actually matter rather than which fields exist.
+      placeholder: Octokit, in a release-notes script that walks workflow runs for a tag.
+    validations:
+      required: true
+  - type: textarea
+    id: response
+    attributes:
+      label: What you get today
+      description: The request and the response, including the status and any headers.
+      render: text
+    validations:
+      required: false

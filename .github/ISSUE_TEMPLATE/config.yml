@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: What is served today
+    url: https://sandboxapis.dev/coverage
+    about: Every endpoint and its current status. Check here before filing a coverage request.
+  - name: Docs
+    url: https://sandboxapis.dev/docs
+    about: Quickstarts for every client, the MCP server, the tutorials and the pinned snapshot hosts.
+  - name: Anything else
+    url: https://sandboxapis.dev/feedback
+    about: Questions, pricing, a provider you want that is not listed yet.

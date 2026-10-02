@@ -1,0 +1,1024 @@
+{
+  "version": "olympus-labs-g12-2026-09",
+  "generation": "g12",
+  "template": "hello-20",
+  "artifactSha256": "c27f762cc1d2656fca27e2a3ffc8c7742e41bca227cc7d36efc4cf0a8bf31d39",
+  "hosts": {
+    "github": "gh-2026-03-g12.snap.sandboxapis.dev",
+    "gitlab": "gl-v4-g12.snap.sandboxapis.dev",
+    "jira": "jira-v3-g12.snap.sandboxapis.dev",
+    "linear": "linear-2026-08-g12.snap.sandboxapis.dev",
+    "slack": "slack-2026-08-g12.snap.sandboxapis.dev"
+  },
+  "items": [
+    {
+      "id": "gh-pull-number",
+      "service": "github",
+      "question": "Which pull request number in olympus-labs/parthenon carried the fix for the dropped-events incident?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "number",
+        "equals": 53
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "gh-pull-title",
+      "service": "github",
+      "question": "What is the title of pull request 53 in olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "title",
+        "equals": "Fix the backfill job OOMing"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gh-pull-merged",
+      "service": "github",
+      "question": "Did pull request 53 in olympus-labs/parthenon merge, or was it closed without merging?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "merged",
+        "equals": true
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "gh-pull-author",
+      "service": "github",
+      "question": "Who opened pull request 53 in olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "user.login",
+        "equals": "tiresias"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gh-pull-head-ref",
+      "service": "github",
+      "question": "Which branch did pull request 53 in olympus-labs/parthenon merge from?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "head.ref",
+        "equals": "hotfix/backfill-job-ooming"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "gh-pull-head-sha",
+      "service": "github",
+      "question": "What is the head commit SHA of pull request 53 in olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "head.sha",
+        "equals": "94dd1fdf3b96e96c242a869801e448edeca9fd85"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "gh-review-state",
+      "service": "github",
+      "question": "What verdict did the review on pull request 53 in olympus-labs/parthenon leave?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53/reviews"
+        }
+      ],
+      "expected": {
+        "path": "0.state",
+        "equals": "APPROVED"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gh-review-count",
+      "service": "github",
+      "question": "How many reviews were submitted on pull request 53 in olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53/reviews"
+        }
+      ],
+      "expected": {
+        "path": "",
+        "count": 1
+      },
+      "difficulty": "reason",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gh-independent-approval",
+      "service": "github",
+      "question": "Pull request 53 in olympus-labs/parthenon was approved. Who signed it off, and was that somebody other than its author?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        },
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53/reviews"
+        }
+      ],
+      "expected": {
+        "path": "0.user.login",
+        "equals": "athena"
+      },
+      "difficulty": "join",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gh-merged-inside-window",
+      "service": "github",
+      "question": "FATE-51 was resolved at 2026-06-19T16:21:17Z. When did the pull request that fixed it merge, and was that before the tracker closed the issue?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        },
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        }
+      ],
+      "expected": {
+        "path": "merged_at",
+        "equals": "2026-06-19T16:11:17Z"
+      },
+      "difficulty": "reason",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the instants line up END TO END"
+    },
+    {
+      "id": "gh-branch-exists",
+      "service": "github",
+      "question": "Is hotfix/backfill-job-ooming a real branch in olympus-labs/parthenon, or only a string on the pull request?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/branches/hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "name",
+        "equals": "hotfix/backfill-job-ooming"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "gh-branch-sha-matches-pull",
+      "service": "github",
+      "question": "Does the branch named on pull request 53 point at the same commit the pull request calls its head?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        },
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/branches/hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "commit.sha",
+        "equals": "94dd1fdf3b96e96c242a869801e448edeca9fd85"
+      },
+      "difficulty": "join",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "jira-issue-key",
+      "service": "jira",
+      "question": "Which Jira issue key tracks the incident where events were dropped during a rebalance?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "key",
+        "equals": "FATE-51"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "jira-summary",
+      "service": "jira",
+      "question": "What summary does the Jira host give FATE-51?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.summary",
+        "equals": "Postmortem follow-up: events dropped during a rebalance"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "jira-status",
+      "service": "jira",
+      "question": "What status does the Jira host report for FATE-51?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.status.name",
+        "equals": "Done"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "jira-issue-type",
+      "service": "jira",
+      "question": "What issue type is FATE-51 filed as?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.issuetype.name",
+        "equals": "Incident"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-assignee",
+      "service": "jira",
+      "question": "Who is FATE-51 assigned to?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.assignee.displayName",
+        "equals": "Tiresias"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-estimate",
+      "service": "jira",
+      "question": "What story point estimate does FATE-51 carry?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.customfield_10016",
+        "equals": 3
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "jira-created",
+      "service": "jira",
+      "question": "When was the incident issue FATE-51 filed?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.created",
+        "equals": "2026-06-17T19:51:17.000+0000"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-resolved",
+      "service": "jira",
+      "question": "When was the incident issue FATE-51 resolved?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.resolutiondate",
+        "equals": "2026-06-19T16:21:17.000+0000"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-beat-the-target",
+      "service": "jira",
+      "question": "FATE-51 was filed at 2026-06-17T19:51:17Z and the team's target is to close an incident within 72 hours. When did it resolve, and did it beat the target?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.resolutiondate",
+        "equals": "2026-06-19T16:21:17.000+0000"
+      },
+      "difficulty": "reason",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-project-key",
+      "service": "jira",
+      "question": "Which Jira project does FATE-51 belong to?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        }
+      ],
+      "expected": {
+        "path": "fields.project.key",
+        "equals": "FATE"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "jira-project-name",
+      "service": "jira",
+      "question": "What is the name of the Jira project whose key is FATE?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/project/FATE"
+        }
+      ],
+      "expected": {
+        "path": "name",
+        "equals": "Fates"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-incident-channel-name",
+      "service": "slack",
+      "question": "Which channel in the olympus-labs workspace is the incident bridge?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.list?limit=999"
+        }
+      ],
+      "expected": {
+        "path": "channels.0.name",
+        "equals": "incident-bridge"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-incident-channel-id",
+      "service": "slack",
+      "question": "What is the channel id of #incident-bridge?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.list?limit=999"
+        }
+      ],
+      "expected": {
+        "path": "channels.0.id",
+        "equals": "CF1UPUMGC8Q"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-opener-text",
+      "service": "slack",
+      "question": "What did the message that opened the incident thread in #incident-bridge say?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.text",
+        "contains": "events dropped during a rebalance"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-opener-ts",
+      "service": "slack",
+      "question": "What is the Slack timestamp of the message that opened the incident thread?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.ts",
+        "equals": "1781726237.230977"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-reply-count",
+      "service": "slack",
+      "question": "How many replies does the incident thread in #incident-bridge carry?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.reply_count",
+        "equals": 11
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-opener-user-id",
+      "service": "slack",
+      "question": "Which user id posted the message that opened the incident thread?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.user",
+        "equals": "U127GRU2DLG"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-distinct-speakers",
+      "service": "slack",
+      "question": "How many different people spoke in the incident thread in #incident-bridge?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.reply_users_count",
+        "equals": 6
+      },
+      "difficulty": "reason",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-thread-length",
+      "service": "slack",
+      "question": "Counting the message that opened it, how many messages are in the incident thread?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        },
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        }
+      ],
+      "expected": {
+        "path": "messages",
+        "count": 12
+      },
+      "difficulty": "reason",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-parent-leads",
+      "service": "slack",
+      "question": "When the incident thread is fetched, which message comes first?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        }
+      ],
+      "expected": {
+        "path": "messages.0.ts",
+        "equals": "1781726237.230977"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-thread-runs-forward",
+      "service": "slack",
+      "question": "The incident thread must run forward in time, with nobody replying before it was opened. What is the timestamp of its last message?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        }
+      ],
+      "expected": {
+        "path": "messages.11.ts",
+        "equals": "1781884637.892883"
+      },
+      "difficulty": "reason",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the incident thread is on the SLACK host: the channel, the opener, the burst"
+    },
+    {
+      "id": "slack-all-clear-text",
+      "service": "slack",
+      "question": "How was the incident thread in #incident-bridge closed out?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        }
+      ],
+      "expected": {
+        "path": "messages.11.text",
+        "contains": "all clear"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-all-clear-user-id",
+      "service": "slack",
+      "question": "Which user id posted the last message in the incident thread?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        }
+      ],
+      "expected": {
+        "path": "messages.11.user",
+        "equals": "U1PQUDI205V"
+      },
+      "difficulty": "read",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-opener-name",
+      "service": "slack",
+      "question": "Resolving the user id on the first message, who opened the incident thread in #incident-bridge?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.history?channel=CF1UPUMGC8Q&limit=1"
+        },
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/users.list?limit=200"
+        }
+      ],
+      "expected": {
+        "path": "members.0.name",
+        "equals": "cassandra"
+      },
+      "difficulty": "join",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "slack-all-clear-name",
+      "service": "slack",
+      "question": "Resolving the user id on the last message, who called the all clear on the incident?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/conversations.replies?channel=CF1UPUMGC8Q&ts=1781726237.230977&limit=999"
+        },
+        {
+          "method": "GET",
+          "host": "slack-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/api/users.list?limit=200"
+        }
+      ],
+      "expected": {
+        "path": "members.1.name",
+        "equals": "tiresias"
+      },
+      "difficulty": "join",
+      "guarded_by": "apps/web/src/lib/tutorials.test.ts#the scripts still print what the pages say they print"
+    },
+    {
+      "id": "gl-merge-request-iid",
+      "service": "gitlab",
+      "question": "The fix merged from hotfix/backfill-job-ooming. Which merge request iid carries that branch in olympus-labs/parthenon on the GitLab host?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/merge_requests?source_branch=hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "0.iid",
+        "equals": 13
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "gl-merge-request-source-branch",
+      "service": "gitlab",
+      "question": "What source branch does merge request 13 in olympus-labs/parthenon carry?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/merge_requests?source_branch=hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "0.source_branch",
+        "equals": "hotfix/backfill-job-ooming"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "gl-merge-request-sha",
+      "service": "gitlab",
+      "question": "What head SHA does the GitLab host report for merge request 13 in olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/merge_requests?source_branch=hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "0.sha",
+        "equals": "94dd1fdf3b96e96c242a869801e448edeca9fd85"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "gl-branch-exists",
+      "service": "gitlab",
+      "question": "Does the GitLab host serve hotfix/backfill-job-ooming as a real branch of olympus-labs/parthenon?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/repository/branches/hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "name",
+        "equals": "hotfix/backfill-job-ooming"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "gl-branch-sha",
+      "service": "gitlab",
+      "question": "Which commit does hotfix/backfill-job-ooming point at on the GitLab host?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/repository/branches/hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "commit.id",
+        "equals": "94dd1fdf3b96e96c242a869801e448edeca9fd85"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "gl-sha-matches-github",
+      "service": "gitlab",
+      "question": "Two git hosts serve this repository. Do the GitHub pull request and the GitLab merge request for the same branch agree on the head SHA?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "gh-2026-03-g12.snap.sandboxapis.dev",
+          "path": "/repos/olympus-labs/parthenon/pulls/53"
+        },
+        {
+          "method": "GET",
+          "host": "gl-v4-g12.snap.sandboxapis.dev",
+          "path": "/api/v4/projects/olympus-labs%2Fparthenon/merge_requests?source_branch=hotfix/backfill-job-ooming"
+        }
+      ],
+      "expected": {
+        "path": "0.sha",
+        "equals": "94dd1fdf3b96e96c242a869801e448edeca9fd85"
+      },
+      "difficulty": "join",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the head SHA is the SAME SHA on the GITLAB host (and that host serves the branch too)"
+    },
+    {
+      "id": "linear-identifier",
+      "service": "linear",
+      "question": "What identifier does the Linear host give the incident issue FATE-51?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.identifier",
+        "equals": "FATE-51"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-title",
+      "service": "linear",
+      "question": "What title does the Linear host give FATE-51?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.title",
+        "equals": "Postmortem follow-up: events dropped during a rebalance"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-estimate",
+      "service": "linear",
+      "question": "What estimate does the Linear host report for FATE-51?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.estimate",
+        "equals": 3
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-state",
+      "service": "linear",
+      "question": "What workflow state is FATE-51 in on the Linear host?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.state.name",
+        "equals": "Done"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-created",
+      "service": "linear",
+      "question": "When was FATE-51 created, according to the Linear host?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.createdAt",
+        "equals": "2026-06-17T19:51:17.000Z"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-completed",
+      "service": "linear",
+      "question": "When was FATE-51 completed, according to the Linear host?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.completedAt",
+        "equals": "2026-06-19T16:21:17.000Z"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-branch-name",
+      "service": "linear",
+      "question": "Which git branch does the Linear host say belongs to FATE-51?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.branchName",
+        "equals": "hotfix/backfill-job-ooming"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#closed_by_pull resolves to the closing PR on the GITHUB host, via the tracker's branchName"
+    },
+    {
+      "id": "linear-team-key",
+      "service": "linear",
+      "question": "Which team owns FATE-51 on the Linear host?",
+      "tool_calls": [
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.team.key",
+        "equals": "FATE"
+      },
+      "difficulty": "read",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-title-matches-jira",
+      "service": "linear",
+      "question": "Two trackers hold this incident. Does the title the Linear host serves for FATE-51 match the summary the Jira host serves?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        },
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.title",
+        "equals": "Postmortem follow-up: events dropped during a rebalance"
+      },
+      "difficulty": "join",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the issue is the SAME entity on the JIRA host (key) and the LINEAR host (identifier)"
+    },
+    {
+      "id": "linear-close-matches-jira",
+      "service": "linear",
+      "question": "Jira resolved FATE-51 at 2026-06-19T16:21:17Z. Does the Linear host report the same close, to the second, in its own date dialect?",
+      "tool_calls": [
+        {
+          "method": "GET",
+          "host": "jira-v3-g12.snap.sandboxapis.dev",
+          "path": "/rest/api/3/issue/FATE-51?fields=summary,status,issuetype,assignee,created,resolutiondate,customfield_10016,project"
+        },
+        {
+          "method": "POST",
+          "host": "linear-2026-08-g12.snap.sandboxapis.dev",
+          "path": "/graphql",
+          "body": "{\"query\":\"{ issue(id:\\\"FATE-51\\\") { identifier title estimate createdAt completedAt branchName state { name } team { key name } } }\"}"
+        }
+      ],
+      "expected": {
+        "path": "data.issue.completedAt",
+        "equals": "2026-06-19T16:21:17.000Z"
+      },
+      "difficulty": "join",
+      "guarded_by": "packages/conformance/src/parity/pinned-cross-category.test.ts#the instants line up END TO END"
+    }
+  ]
+}
