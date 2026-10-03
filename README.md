@@ -29,7 +29,15 @@ Add this to `claude_desktop_config.json`:
 
 ### Cursor
 
-Add this to `.cursor/mcp.json` in your project, or to `~/.cursor/mcp.json` for every project:
+One click installs the server with no key: [Add to Cursor](https://sandboxapis.dev/docs/mcp#cursor)
+
+Copy this into the address bar if the button does not open Cursor:
+
+```
+cursor://anysphere.cursor-deeplink/mcp/install?name=sandboxapis&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBzYW5kYm94YXBpcy9tY3AiXX0=
+```
+
+The link carries only `{ "command": "npx", "args": ["-y", "@sandboxapis/mcp"] }`, and Cursor shows it to you before installing. Or add this to `.cursor/mcp.json` in your project, or to `~/.cursor/mcp.json` for every project:
 
 ```json
 {
@@ -59,6 +67,10 @@ Everything works with no configuration. A free key lifts the anonymous limit of 
 ```
 
 Keys are free at [sandboxapis.dev/login](https://sandboxapis.dev/login).
+
+### The Cursor plugin
+
+[`cursor-plugin/`](cursor-plugin) is the same server as a Cursor plugin, with a rule that teaches the agent to call `orient` first and `check_budget` before loops, and a skill that runs the eval pack below. Opening this repository in Cursor applies the rule on its own, from [`.cursor/rules/sandboxapis.mdc`](.cursor/rules/sandboxapis.mdc). The walkthrough is at [sandboxapis.dev/docs/tutorials/cursor](https://sandboxapis.dev/docs/tutorials/cursor).
 
 ### Tools
 
@@ -112,6 +124,10 @@ pip install requests && python3 github_agent.py
 ```
 
 All three read the same incident from three different APIs, and they agree with each other. That is the point of the data set.
+
+### `cursor-plugin/`: the Cursor plugin
+
+The MCP server, a rule and a skill in Cursor's plugin format, installable as a local plugin today. See its [README](cursor-plugin/README.md).
 
 ### `mcp/`: directory metadata and a container recipe
 

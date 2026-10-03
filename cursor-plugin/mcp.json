@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sandboxapis": {
+      "command": "npx",
+      "args": ["-y", "@sandboxapis/mcp"]
+    }
+  }
+}
