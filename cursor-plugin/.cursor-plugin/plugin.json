@@ -1,7 +1,7 @@
 {
   "name": "sandboxapis",
   "description": "Test your agent against read-only, API-compatible replicas of GitHub, GitLab, Jira, Slack and 17 more, preloaded with one simulated data set whose references resolve across every service. Adds the SandboxAPIs MCP server, a rule that teaches the agent to use it well, and a skill that scores a run with the answer-key eval pack.",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "author": {
     "name": "SandboxAPIs team",
     "url": "https://github.com/driftwork-llc"
