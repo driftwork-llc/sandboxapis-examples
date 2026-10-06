@@ -12,6 +12,8 @@ claude mcp add sandboxapis -- npx -y @sandboxapis/mcp
 
 Then have the agent call `orient` first. It comes back with the API surfaces and their base URLs, the simulated company and its teams, notable entry points each with a ready-to-run request, how to pin a reproducible snapshot, where the coverage manifest lives, and an `access` block saying what the server may spend. That is enough to make a correct call with no docs reading.
 
+The server's source is public at [github.com/driftwork-llc/sandboxapis-mcp](https://github.com/driftwork-llc/sandboxapis-mcp), MIT licensed.
+
 ### Claude Desktop
 
 Add this to `claude_desktop_config.json`:
