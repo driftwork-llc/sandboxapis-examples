@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "sandboxapis": {
+      "serverUrl": "https://api.sandboxapis.dev/mcp"
+    }
+  }
+}

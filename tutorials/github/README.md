@@ -59,7 +59,7 @@ curl -s -i -X POST https://gh-2026-03-g12.snap.sandboxapis.dev/repos/olympus-lab
 HTTP 403
 x-sandboxapis-read-only: true
 
-{"message":"This universe is read-only. See what's covered at https://sandboxapis.dev/roadmap. (You tried to POST /repos/olympus-labs/parthenon/issues.) Tell us what you needed to write: https://sandboxapis.dev/feedback","documentation_url":"https://sandboxapis.dev/roadmap","status":"403"}
+{"message":"This universe is read-only. See what's covered at https://sandboxapis.dev/coverage. (You tried to POST /repos/olympus-labs/parthenon/issues.) Tell us what you needed to write: https://sandboxapis.dev/feedback","documentation_url":"https://sandboxapis.dev/coverage","status":"403"}
 ```
 
 Full walkthrough: https://sandboxapis.dev/docs/tutorials/agent-github

@@ -39,7 +39,7 @@ def answer(item, responses, agent):
     scores the DATA SET. Put your model call under "if agent:" and the same
     expectations score the MODEL instead, which is what makes this an eval:
         if agent:
-            reply = anthropic.Anthropic().messages.create(model="claude-sonnet-4-5",
+            reply = anthropic.Anthropic().messages.create(model="claude-sonnet-5",
                 max_tokens=256, messages=[{"role": "user", "content": item["question"] + json.dumps(responses)}])
             return json.loads(reply.content[0].text)["answer"]
     """

@@ -32,7 +32,7 @@ def at(stamp):
 # 2. REASON. The agent step: a pure function of the fetched data, so the same
 # input always produces the same verdict. Swap in a model call here and the
 # assertions below become an eval:
-#   answer = json.loads(client.messages.create(model="claude-sonnet-4-5",
+#   answer = json.loads(client.messages.create(model="claude-sonnet-5",
 #            max_tokens=256, messages=[{"role": "user", "content": prompt}]) ...)
 def cycle_time(issue_fields, target_hours=72):
     if issue_fields["resolutiondate"] is None:

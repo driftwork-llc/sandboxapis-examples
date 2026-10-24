@@ -53,6 +53,52 @@ Each item also carries `guarded_by`, naming the test in this repository that
 would fail if the answer changed. An item nobody can cite does not go in the
 pack.
 
+## Import it into an eval tool
+
+Three zero-dependency exports, one command each, each writing all 53 items as
+one JSON object per line. They share `rows.mjs`, so the three files always
+describe the same items. Run them from the repository root with Node 22.
+
+| target | command | writes | per-line shape |
+| --- | --- | --- | --- |
+| Hugging Face | `node evals/huggingface/export-hf.mjs` | `evals/huggingface/data/train.jsonl` | `id`, `provider`, `question`, `expected`, `request_url`, `request_method`, `tool_calls`, `difficulty`, `guarded_by`, `pin_host` |
+| LangSmith | `node evals/export-langsmith.mjs` | `evals/exports/langsmith.jsonl` | `{"inputs": {...}, "outputs": {...}, "metadata": {...}}` |
+| Braintrust | `node evals/export-braintrust.mjs` | `evals/exports/braintrust.jsonl` | `{"id", "input", "expected", "metadata", "tags"}` |
+
+    $ wc -l evals/huggingface/data/train.jsonl evals/exports/*.jsonl
+          53 evals/huggingface/data/train.jsonl
+          53 evals/exports/braintrust.jsonl
+          53 evals/exports/langsmith.jsonl
+
+The three output files are committed, so you can import them without running
+anything. Both vendor exports take an output path as their one argument.
+
+**Hugging Face.** `evals/huggingface/` is the dataset repository
+`sandboxapis/olympus-labs-evals`: the card is its `README.md`, and the export
+also updates the card's row count. `expected` and `tool_calls` are JSON-encoded
+strings there, because `expected.value` is a string on some rows, an integer on
+others and a boolean on one, and the Arrow tables `datasets` loads need one type
+per column. `json.loads(row["expected"])` gives `{"path", "match", "value"}`.
+
+**LangSmith.** Each line is one example. `inputs` holds the question and the
+reference tool calls, `outputs` holds the answer with how to compare it
+(`match` is `equals`, `count` or `contains`, at `path`), and `metadata` holds the
+item id, provider, difficulty, host and `guarded_by`. Upload it under Datasets,
+New dataset, in the LangSmith app. Shape from LangSmith's docs: "Import an
+existing dataset from CSV or JSONL file" (docs.langchain.com/langsmith/manage-datasets-in-application),
+an example's documented fields `inputs`, `outputs` and `metadata`
+(docs.langchain.com/langsmith/example-data-format), and LangSmith's forum answer
+that the JSONL importer reads `inputs` and `outputs` as top-level keys
+(forum.langchain.com/t/problem-with-importing-datasets-from-jsonl/651). Read
+2026-10-08.
+
+**Braintrust.** Each line is one record with the top-level fields Braintrust
+documents for a dataset record: `id`, `input`, `expected`, `metadata` and `tags`
+(braintrust.dev/docs/annotate/datasets/create, read 2026-10-08). The `id` is the
+item id, so re-importing updates rows rather than adding copies. Import it with
+`bt datasets create olympus-labs-evals --file evals/exports/braintrust.jsonl`,
+or upload it in the app and map the columns.
+
 ## More items
 
 The pack covers one incident told by 5 services. Ask for more, or for a

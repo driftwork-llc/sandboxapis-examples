@@ -59,7 +59,7 @@ curl -s -i -X POST https://jira-v3-g12.snap.sandboxapis.dev/rest/api/3/issue \
 HTTP 403
 x-sandboxapis-read-only: true
 
-{"errorMessages":["This universe is read-only. See what's covered at https://sandboxapis.dev/roadmap. (You tried to POST /rest/api/3/issue.) Tell us what you needed to write: https://sandboxapis.dev/feedback"],"errors":{}}
+{"errorMessages":["This universe is read-only. See what's covered at https://sandboxapis.dev/coverage. (You tried to POST /rest/api/3/issue.) Tell us what you needed to write: https://sandboxapis.dev/feedback"],"errors":{}}
 ```
 
 Full walkthrough: https://sandboxapis.dev/docs/tutorials/agent-jira

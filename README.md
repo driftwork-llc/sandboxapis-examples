@@ -52,6 +52,22 @@ The link carries only `{ "command": "npx", "args": ["-y", "@sandboxapis/mcp"] }`
 }
 ```
 
+### Antigravity
+
+Add this to `~/.gemini/config/mcp_config.json`, or `.agents/mcp_config.json` for one project, then reload the server from Antigravity's MCP manager or restart Antigravity. Antigravity names a remote server by `serverUrl`, not `url`:
+
+```json
+{
+  "mcpServers": {
+    "sandboxapis": {
+      "serverUrl": "https://api.sandboxapis.dev/mcp"
+    }
+  }
+}
+```
+
+That is the hosted server, with nothing to install. The stdio form in the Claude Desktop block above works in the same file. To sign in rather than paste a key, use `https://api.sandboxapis.dev/mcp/auth` as the `serverUrl` and choose Authenticate next to the server; no `oauth` block is needed. All the forms are at [sandboxapis.dev/docs/mcp#antigravity](https://sandboxapis.dev/docs/mcp#antigravity).
+
 ### An API key is optional
 
 Everything works with no configuration. A free key lifts the anonymous limit of 60 requests an hour to 600, which an agent in a loop will want:
@@ -110,6 +126,8 @@ A full run makes 12 requests, which fits inside the anonymous hourly budget. Bot
 
 Each item carries `guarded_by`, naming the test that would fail if the answer changed. Those tests live in the SandboxAPIs engine repository, which is private; the citation is there so you can see that every answer is pinned by a test rather than typed from memory.
 
+The pack also exports to the formats eval tools import: a Hugging Face dataset with its card in [`evals/huggingface`](evals/huggingface), and JSONL for LangSmith and Braintrust. One command each, in [`evals/README.md`](evals/README.md).
+
 ### `tutorials/`: three agent tasks, as runnable files
 
 One provider from each of the three categories an agent-evaluation harness reaches for first: a git host, a tracker and a chat log. Each directory holds the agent script, the same claim as a five-line pytest file, and a README with the captured output.
@@ -127,9 +145,17 @@ pip install requests && python3 github_agent.py
 
 All three read the same incident from three different APIs, and they agree with each other. That is the point of the data set.
 
+### `examples/`: the GitHub task in LangGraph and the OpenAI Agents SDK
+
+The `tutorials/github` task as a two-node LangGraph graph and as an OpenAI Agents SDK agent with one function tool, each scored against the eval pack's answer key. `--dry-run` runs the tool calls and the scorer with no model key. See [`examples/README.md`](examples/README.md).
+
 ### `cursor-plugin/`: the Cursor plugin
 
 The MCP server, a rule and a skill in Cursor's plugin format, installable as a local plugin today. See its [README](cursor-plugin/README.md).
+
+### `antigravity-plugin/`: the Antigravity plugin
+
+The hosted MCP server and a skill that teaches the agent to test against it, in Antigravity's plugin format. Install it with `agy plugin install ./antigravity-plugin` from a clone. See its [README](antigravity-plugin/README.md).
 
 ### `mcp/`: directory metadata and a container recipe
 

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "sandboxapis",
+  "description": "Test your agent or integration against read-only, API-compatible replicas of GitHub, GitLab, Jira, Slack and 17 more, preloaded with one simulated data set whose references resolve across every service. Adds the hosted SandboxAPIs MCP server and a skill that teaches the agent to test against it well."
+}

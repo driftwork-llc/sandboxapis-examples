@@ -29,7 +29,7 @@ names = {u["id"]: u["name"] for u in call("users.list", limit=200)["members"]}
 # 2. REASON. The agent step: a pure function of the fetched data, so the same
 # input always produces the same verdict. Swap in a model call here and the
 # assertions below become an eval:
-#   answer = json.loads(client.messages.create(model="claude-sonnet-4-5",
+#   answer = json.loads(client.messages.create(model="claude-sonnet-5",
 #            max_tokens=256, messages=[{"role": "user", "content": prompt}]) ...)
 def triage(messages):
     closing = [m for m in messages if "all clear" in m["text"].lower()]

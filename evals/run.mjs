@@ -37,7 +37,7 @@ function scores(expected, value) {
 
 // THE AGENT HOOK. With no flag this reads the answer out of the response, which scores the DATA
 // SET. Put your model call under "if (agent)" and the same expectations score the MODEL instead:
-//   if (agent) { const reply = await new Anthropic().messages.create({ model: "claude-sonnet-4-5",
+//   if (agent) { const reply = await new Anthropic().messages.create({ model: "claude-sonnet-5",
 //     max_tokens: 256, messages: [{ role: "user", content: item.question + JSON.stringify(responses) }] });
 //     return JSON.parse(reply.content[0].text).answer; }
 const answer = async (item, responses, agent) => at(responses.at(-1), item.expected.path);

@@ -58,7 +58,7 @@ curl -s -i -X POST https://slack-2026-08-g12.snap.sandboxapis.dev/api/chat.postM
 ```
 HTTP 200
 x-sandboxapis-read-only: true
-x-sandboxapis-reason: This universe is read-only. See what's covered at https://sandboxapis.dev/roadmap. (You tried to call chat.postMessage.) Tell us what you needed to write: https://sandboxapis.dev/feedback
+x-sandboxapis-reason: This universe is read-only. See what's covered at https://sandboxapis.dev/coverage. (You tried to call chat.postMessage.) Tell us what you needed to write: https://sandboxapis.dev/feedback
 
 {"ok":false,"error":"read_only_universe","req_method":"chat.postMessage"}
 ```
