@@ -1,6 +1,6 @@
 # SandboxAPIs for Antigravity
 
-An Antigravity plugin that gives the agent a read-only, API-compatible replica of GitHub, GitLab, Jira, Slack and 17 more services to test itself and your integrations against. All of them are preloaded with one simulated data set, `olympus-labs`, whose references resolve across every service, and every write is refused with the provider's own error shape, so there is nothing to seed and nothing to clean up.
+An Antigravity plugin that gives the agent a read-only, API-compatible replica of GitHub, GitLab, Jira, Slack and 21 more services to test itself and your integrations against. All of them are preloaded with one simulated data set, `olympus-labs`, whose references resolve across every service, and every write is refused with the provider's own error shape, so there is nothing to seed and nothing to clean up.
 
 The plugin is two things:
 
