@@ -67,4 +67,4 @@ The walkthrough is at [sandboxapis.dev/docs/tutorials/antigravity](https://sandb
 
 ## Versions
 
-Antigravity's manifest takes only `name` and `description`, so the version lives here: this plugin tracks `@sandboxapis/mcp` 0.3.19, the same server the hosted URL runs. The tool list in the skill is checked against the server's source on every build of the SandboxAPIs site, so a renamed tool cannot leave the skill telling the agent to call something that no longer exists.
+Antigravity's manifest takes only `name` and `description`, so the version lives here: this plugin tracks `@sandboxapis/mcp` 0.3.20, the same server the hosted URL runs. The tool list in the skill is checked against the server's source on every build of the SandboxAPIs site, so a renamed tool cannot leave the skill telling the agent to call something that no longer exists.
